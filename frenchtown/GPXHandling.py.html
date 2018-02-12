@@ -1,0 +1,141 @@
+<html>
+<head>
+<title>GPXHandling.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(98,151,85); font-style: italic; }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(204,120,50); }
+.s3 { color: rgb(106,135,89); }
+.s4 { color: rgb(128,128,128); }
+.s5 { color: rgb(104,151,187); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+GPXHandling.py</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">&quot;&quot;&quot; 
+GPX File Handler 
+&quot;&quot;&quot;</span><span class="s1"> 
+ 
+</span><span class="s2">import </span><span class="s1">fnmatch 
+</span><span class="s2">import </span><span class="s1">os 
+</span><span class="s2">import </span><span class="s1">csv 
+</span><span class="s2">from </span><span class="s1">collections </span><span class="s2">import </span><span class="s1">namedtuple 
+</span><span class="s2">import </span><span class="s1">gpxpy 
+</span><span class="s2">import </span><span class="s1">gpxpy.gpx 
+ 
+DEFAULT_DIRECTORY = </span><span class="s3">'C:</span><span class="s2">\\</span><span class="s3">GitHub</span><span class="s2">\\</span><span class="s3">share</span><span class="s2">\\</span><span class="s3">frenchtown</span><span class="s2">\\</span><span class="s3">examples</span><span class="s2">\\</span><span class="s3">'</span><span class="s1"> 
+ 
+GPXPoint = namedtuple(</span><span class="s3">'GPXPoint'</span><span class="s2">, </span><span class="s3">'FileName Idx Type Time Lat Long Elev Desc'</span><span class="s1">) 
+ 
+ 
+</span><span class="s2">class </span><span class="s1">GPXHandler(): 
+    </span><span class="s2">def </span><span class="s1">__init__(self</span><span class="s2">, </span><span class="s1">path): 
+        self.path = path 
+        self.gpx_path = path + </span><span class="s3">'gpx</span><span class="s2">\\</span><span class="s3">'</span><span class="s1"> 
+        self.csv_path = path + </span><span class="s3">'csv</span><span class="s2">\\</span><span class="s3">'</span><span class="s1"> 
+        self.fileroster = [] 
+ 
+        </span><span class="s4"># check to see if GPX path exists</span><span class="s1"> 
+        </span><span class="s4"># ToDo: Terminate if Folder Not Found</span><span class="s1"> 
+        </span><span class="s2">if not </span><span class="s1">os.path.isdir(self.gpx_path): 
+            print(</span><span class="s3">'Error: {} is not a valid path'</span><span class="s1">.format(path)) 
+ 
+        </span><span class="s4"># check to see if CSV path exists</span><span class="s1"> 
+        </span><span class="s2">if not </span><span class="s1">os.path.isdir(self.csv_path): 
+            os.mkdir(self.csv_path) 
+            </span><span class="s2">pass</span><span class="s1"> 
+ 
+    </span><span class="s2">def </span><span class="s1">retrieve_fileroster(self): 
+ 
+        listoffiles = os.listdir(self.gpx_path) 
+ 
+        </span><span class="s2">for </span><span class="s1">entry </span><span class="s2">in </span><span class="s1">listoffiles: 
+            </span><span class="s2">if </span><span class="s1">fnmatch.fnmatch(entry</span><span class="s2">, </span><span class="s3">'*.gpx'</span><span class="s1">): 
+                self.fileroster.append(os.path.join(self.gpx_path</span><span class="s2">, </span><span class="s1">entry)) 
+ 
+    </span><span class="s2">def </span><span class="s1">print_fileroster(self): 
+ 
+        print(</span><span class="s3">'GPX Files Found: {}'</span><span class="s1">.format(len(self.fileroster))) 
+ 
+        </span><span class="s2">for </span><span class="s1">idx</span><span class="s2">, </span><span class="s1">file </span><span class="s2">in </span><span class="s1">enumerate(self.fileroster</span><span class="s2">, </span><span class="s5">1</span><span class="s1">): 
+            print(</span><span class="s3">'{}. {}'</span><span class="s1">.format(idx</span><span class="s2">, </span><span class="s1">file)) 
+ 
+    </span><span class="s2">def </span><span class="s1">output_fileroster(self): 
+ 
+        outputfile = os.path.join(self.path + </span><span class="s3">'fileroster.csv'</span><span class="s1">) 
+ 
+        </span><span class="s4"># Content Manager For Building .CSV File</span><span class="s1"> 
+        </span><span class="s2">with </span><span class="s1">open(outputfile</span><span class="s2">, </span><span class="s3">'w'</span><span class="s2">, </span><span class="s1">newline=</span><span class="s3">''</span><span class="s1">) </span><span class="s2">as </span><span class="s1">csvfile: 
+            spamwriter = csv.writer(csvfile</span><span class="s2">, </span><span class="s1">delimiter=</span><span class="s3">','</span><span class="s1">) 
+ 
+            </span><span class="s4"># Write Header to CSV</span><span class="s1"> 
+            spamwriter.writerow([</span><span class="s3">'GPX File Roster'</span><span class="s1">]) 
+            spamwriter.writerow([</span><span class="s3">'Item'</span><span class="s2">, </span><span class="s3">'FileName'</span><span class="s1">]) 
+ 
+            </span><span class="s4"># Write Filenames to CSV</span><span class="s1"> 
+            </span><span class="s2">for </span><span class="s1">idx</span><span class="s2">, </span><span class="s1">file </span><span class="s2">in </span><span class="s1">enumerate(self.fileroster</span><span class="s2">, </span><span class="s5">1</span><span class="s1">): 
+                spamwriter.writerow([idx</span><span class="s2">, </span><span class="s1">file]) 
+ 
+    </span><span class="s2">def </span><span class="s1">output_csv_from_gpx(self): 
+ 
+        fileroster = self.fileroster 
+ 
+        </span><span class="s2">for </span><span class="s1">file </span><span class="s2">in </span><span class="s1">fileroster: 
+ 
+            csv_name = os.path.basename(os.path.splitext(file)[</span><span class="s5">0</span><span class="s1">]) + </span><span class="s3">'.csv'</span><span class="s1"> 
+            outputfile = self.csv_path + csv_name 
+ 
+            gpx_file = open(file</span><span class="s2">, </span><span class="s3">'r'</span><span class="s1">) 
+            gpx = gpxpy.parse(gpx_file) 
+ 
+            </span><span class="s4"># Content Manager For Building .CSV Files</span><span class="s1"> 
+            </span><span class="s2">with </span><span class="s1">open(outputfile</span><span class="s2">, </span><span class="s3">'w'</span><span class="s2">, </span><span class="s1">newline=</span><span class="s3">''</span><span class="s1">) </span><span class="s2">as </span><span class="s1">csvfile: 
+                spamwriter = csv.writer(csvfile</span><span class="s2">, </span><span class="s1">delimiter=</span><span class="s3">','</span><span class="s1">) 
+ 
+                </span><span class="s4"># Writer Header</span><span class="s1"> 
+                spamwriter.writerow(GPXPoint._fields) 
+ 
+                </span><span class="s2">for </span><span class="s1">idx</span><span class="s2">, </span><span class="s1">waypoint </span><span class="s2">in </span><span class="s1">enumerate(gpx.waypoints): 
+                    spamwriter.writerow([os.path.basename(file)</span><span class="s2">,</span><span class="s1"> 
+                                         idx</span><span class="s2">,</span><span class="s1"> 
+                                         </span><span class="s3">'WayPoint'</span><span class="s2">,</span><span class="s1"> 
+                                         waypoint.time</span><span class="s2">,</span><span class="s1"> 
+                                         waypoint.latitude</span><span class="s2">,</span><span class="s1"> 
+                                         waypoint.longitude</span><span class="s2">,</span><span class="s1"> 
+                                         waypoint.elevation</span><span class="s2">,</span><span class="s1"> 
+                                         waypoint.name]) 
+ 
+                </span><span class="s4"># Write Trackpoints to CSV</span><span class="s1"> 
+                </span><span class="s2">for </span><span class="s1">track </span><span class="s2">in </span><span class="s1">gpx.tracks: 
+                    </span><span class="s2">for </span><span class="s1">segment </span><span class="s2">in </span><span class="s1">track.segments: 
+                        </span><span class="s2">for </span><span class="s1">idx</span><span class="s2">, </span><span class="s1">point </span><span class="s2">in </span><span class="s1">enumerate(segment.points): 
+                            spamwriter.writerow([os.path.basename(file)</span><span class="s2">,</span><span class="s1"> 
+                                                 idx</span><span class="s2">,</span><span class="s1"> 
+                                                 </span><span class="s3">'TrackPoint'</span><span class="s2">,</span><span class="s1"> 
+                                                 point.time</span><span class="s2">,</span><span class="s1"> 
+                                                 point.latitude</span><span class="s2">,</span><span class="s1"> 
+                                                 point.longitude</span><span class="s2">,</span><span class="s1"> 
+                                                 point.elevation</span><span class="s2">,</span><span class="s1"> 
+                                                 point.name]) 
+ 
+ 
+</span><span class="s2">def </span><span class="s1">main(): 
+    gpx = GPXHandler(DEFAULT_DIRECTORY) 
+    gpx.retrieve_fileroster() 
+    gpx.print_fileroster() 
+    gpx.output_fileroster() 
+    gpx.output_csv_from_gpx() 
+ 
+ 
+</span><span class="s2">if </span><span class="s1">__name__ == </span><span class="s3">'__main__'</span><span class="s1">: 
+    main() 
+</span></pre>
+</body>
+</html>
