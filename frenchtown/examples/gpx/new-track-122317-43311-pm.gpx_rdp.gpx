@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/0" xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd" version="1.0" creator="gpx.py -- https://github.com/tkrajina/gpxpy">
+<trk>
+<name>GPXTrack[Bt]</name>
+<trkseg>
+<trkpt lat="30.47477" lon="-90.990118">
+<ele>-3.0</ele>
+<time>2018-02-22T21:38:00Z</time></trkpt>
+<trkpt lat="30.474858" lon="-90.990122">
+<ele>-12.0</ele>
+<time>2018-02-22T21:38:05Z</time></trkpt>
+<trkpt lat="30.474927" lon="-90.990175">
+<ele>0.0</ele>
+<time>2018-02-22T21:38:10Z</time></trkpt>
+<trkpt lat="30.474908" lon="-90.990284">
+<ele>-9.0</ele>
+<time>2018-02-22T21:38:15Z</time></trkpt>
+<trkpt lat="30.475008" lon="-90.990325">
+<ele>-6.0</ele>
+<time>2018-02-22T21:38:20Z</time></trkpt>
+<trkpt lat="30.475074" lon="-90.990327">
+<ele>-12.0</ele>
+<time>2018-02-22T21:38:25Z</time></trkpt>
+<trkpt lat="30.475126" lon="-90.990324">
+<ele>-6.0</ele>
+<time>2018-02-22T21:38:30Z</time></trkpt>
+<trkpt lat="30.475199" lon="-90.990377">
+<ele>-7.0</ele>
+<time>2018-02-22T21:38:35Z</time></trkpt>
+<trkpt lat="30.475307" lon="-90.990354">
+<ele>-6.0</ele>
+<time>2018-02-22T21:38:40Z</time></trkpt>
+<trkpt lat="30.475489" lon="-90.990129">
+<ele>5.0</ele>
+<time>2018-02-22T21:38:45Z</time></trkpt>
+<trkpt lat="30.475492" lon="-90.990118">
+<ele>1.0</ele>
+<time>2018-02-22T21:38:50Z</time></trkpt>
+<trkpt lat="30.475622" lon="-90.989954">
+<ele>6.0</ele>
+<time>2018-02-22T21:38:55Z</time></trkpt>
+<trkpt lat="30.47563" lon="-90.98988">
+<ele>-3.0</ele>
+<time>2018-02-22T21:39:00Z</time></trkpt>
+<trkpt lat="30.475672" lon="-90.989678">
+<ele>3.0</ele>
+<time>2018-02-22T21:39:05Z</time></trkpt>
+<trkpt lat="30.475741" lon="-90.989568">
+<ele>-2.0</ele>
+<time>2018-02-22T21:39:10Z</time></trkpt>
+<trkpt lat="30.475774" lon="-90.989513">
+<ele>1.0</ele>
+<time>2018-02-22T21:39:15Z</time></trkpt>
+<trkpt lat="30.475823" lon="-90.989399">
+<ele>-2.0</ele>
+<time>2018-02-22T21:39:20Z</time></trkpt>
+<trkpt lat="30.475864" lon="-90.989347">
+<ele>-1.0</ele>
+<time>2018-02-22T21:39:25Z</time></trkpt>
+<trkpt lat="30.475962" lon="-90.989312">
+<ele>-5.0</ele>
+<time>2018-02-22T21:39:30Z</time></trkpt>
+<trkpt lat="30.476029" lon="-90.989291">
+<ele>1.0</ele>
+<time>2018-02-22T21:39:35Z</time></trkpt>
+<trkpt lat="30.476222" lon="-90.989261">
+<ele>-13.0</ele>
+<time>2018-02-22T21:39:40Z</time></trkpt>
+<trkpt lat="30.476229" lon="-90.989239">
+<ele>-9.0</ele>
+<time>2018-02-22T21:39:45Z</time></trkpt>
+<trkpt lat="30.476303" lon="-90.988889">
+<ele>-2.0</ele>
+<time>2018-02-22T21:39:50Z</time></trkpt>
+<trkpt lat="30.476249" lon="-90.988731">
+<ele>-7.0</ele>
+<time>2018-02-22T21:39:55Z</time></trkpt>
+<trkpt lat="30.47622" lon="-90.988709">
+<ele>-5.0</ele>
+<time>2018-02-22T21:40:00Z</time></trkpt>
+<trkpt lat="30.476154" lon="-90.988637">
+<ele>-7.0</ele>
+<time>2018-02-22T21:40:05Z</time></trkpt>
+<trkpt lat="30.47619" lon="-90.98846">
+<ele>-3.0</ele>
+<time>2018-02-22T21:40:10Z</time></trkpt>
+<trkpt lat="30.476128" lon="-90.988265">
+<ele>-3.0</ele>
+<time>2018-02-22T21:40:15Z</time></trkpt>
+<trkpt lat="30.476185" lon="-90.988284">
+<ele>5.0</ele>
+<time>2018-02-22T21:40:20Z</time></trkpt>
+<trkpt lat="30.476151" lon="-90.988222">
+<ele>-4.0</ele>
+<time>2018-02-22T21:40:25Z</time></trkpt></trkseg></trk></gpx>

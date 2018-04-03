@@ -1088,10 +1088,7 @@
 <time>2017-11-06T18:36:18Z</time></trkpt>
 <trkpt lat="30.476067999999998" lon="-90.988033">
 <ele>-17.0</ele>
-<time>2017-11-06T18:36:25Z</time></trkpt></trkseg></trk>
-<trk>
-<name>2</name>
-<trkseg>
+<time>2017-11-06T18:36:25Z</time></trkpt>
 <trkpt lat="30.476136999999998" lon="-90.988052">
 <ele>-12.0</ele>
 <time>2017-11-07T21:28:22Z</time></trkpt>
@@ -2792,10 +2789,7 @@
 <time>2017-11-07T23:49:36Z</time></trkpt>
 <trkpt lat="30.476124" lon="-90.988085">
 <ele>-13.0</ele>
-<time>2017-11-07T23:51:36Z</time></trkpt></trkseg></trk>
-<trk>
-<name>3</name>
-<trkseg>
+<time>2017-11-07T23:51:36Z</time></trkpt>
 <trkpt lat="30.473213" lon="-90.992626">
 <ele>24.0</ele>
 <time>2017-11-08T22:37:04Z</time></trkpt>
@@ -3938,10 +3932,7 @@
 <time>2017-11-08T23:51:06Z</time></trkpt>
 <trkpt lat="30.476102" lon="-90.98803199999999">
 <ele>-2.0</ele>
-<time>2017-11-08T23:51:34Z</time></trkpt></trkseg></trk>
-<trk>
-<name>4</name>
-<trkseg>
+<time>2017-11-08T23:51:34Z</time></trkpt>
 <trkpt lat="30.47477" lon="-90.99011800000001">
 <ele>-3.0</ele>
 <time>2017-12-23T22:33:05Z</time></trkpt>
@@ -4202,10 +4193,7 @@
 <time>2017-12-23T22:44:16Z</time></trkpt>
 <trkpt lat="30.476151" lon="-90.988222">
 <ele>-4.0</ele>
-<time>2017-12-23T22:45:11Z</time></trkpt></trkseg></trk>
-<trk>
-<name>5</name>
-<trkseg>
+<time>2017-12-23T22:45:11Z</time></trkpt>
 <trkpt lat="30.473211" lon="-90.986921">
 <ele>-13.0</ele>
 <time>2018-01-25T20:13:06Z</time></trkpt>
@@ -4541,10 +4529,7 @@
 <time>2018-01-25T20:31:21Z</time></trkpt>
 <trkpt lat="30.476323999999998" lon="-90.988095">
 <ele>-19.0</ele>
-<time>2018-01-25T20:32:39Z</time></trkpt></trkseg></trk>
-<trk>
-<name>6</name>
-<trkseg>
+<time>2018-01-25T20:32:39Z</time></trkpt>
 <trkpt lat="30.475934000000002" lon="-90.988338">
 <ele>50.0</ele>
 <time>2017-12-08T21:48:06Z</time></trkpt>

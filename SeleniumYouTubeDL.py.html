@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>SeleniumYouTubeDL.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #999999; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(0,128,128); font-weight: bold; }
+.s3 { color: rgb(128,128,128); font-style: italic; }
+.s4 { color: rgb(0,0,255); }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+SeleniumYouTubeDL.py</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">from </span><span class="s1">selenium.webdriver </span><span class="s0">import </span><span class="s1">Chrome 
+</span><span class="s0">from </span><span class="s1">selenium.webdriver.chrome.options </span><span class="s0">import </span><span class="s1">Options 
+</span><span class="s0">import </span><span class="s1">collections 
+</span><span class="s0">import </span><span class="s1">csv 
+</span><span class="s0">import </span><span class="s1">os.path 
+ 
+YOUTUBE_SELENIUM = </span><span class="s2">'https://www.youtube.com/channel/UCscI4NOggNSN-Si5QgErNCw/videos'</span><span class="s1"> 
+ 
+ 
+</span><span class="s0">def </span><span class="s1">main(): 
+    </span><span class="s3"># Create a Headless Browser</span><span class="s1"> 
+    opts = Options() 
+    opts.set_headless() 
+    browser = Chrome(options=opts) 
+    browser.get(YOUTUBE_SELENIUM) 
+ 
+    VideoInfo = collections.namedtuple(</span><span class="s2">'VideoInfo'</span><span class="s1">, </span><span class="s2">'idx href channel title aria_label'</span><span class="s1">) 
+ 
+    video_list = [] 
+ 
+    video_urls = browser.find_elements_by_id(</span><span class="s2">'video-title'</span><span class="s1">) 
+ 
+    </span><span class="s3"># Final File Name: Current Directory + Channel Name + .csv</span><span class="s1"> 
+    channel = browser.title 
+    channel = channel.replace(</span><span class="s2">' - YouTube - YouTube'</span><span class="s1">, </span><span class="s2">&quot;&quot;</span><span class="s1">) 
+    channel = channel.replace(</span><span class="s2">' '</span><span class="s1">, </span><span class="s2">&quot;&quot;</span><span class="s1">) 
+ 
+    </span><span class="s3"># For Every Video Title Found Create Named Tuple and Append to Video List</span><span class="s1"> 
+    </span><span class="s0">for </span><span class="s1">idx, video </span><span class="s0">in </span><span class="s1">enumerate(video_urls, </span><span class="s4">1</span><span class="s1">): 
+        href = video.get_attribute(</span><span class="s2">'href'</span><span class="s1">) 
+        title = video.get_attribute(</span><span class="s2">'title'</span><span class="s1">)  </span><span class="s3"># Not URL</span><span class="s1"> 
+        aria_label = video.get_attribute(</span><span class="s2">'aria-label'</span><span class="s1">) 
+ 
+        vid = VideoInfo(idx=idx, href=href, channel=channel, title=title, aria_label=aria_label) 
+ 
+        video_list.append(vid) 
+ 
+    outputfile = os.path.join(os.path.dirname(__file__), channel + </span><span class="s2">'.csv'</span><span class="s1">) 
+ 
+    </span><span class="s0">with </span><span class="s1">open(outputfile, </span><span class="s2">'w'</span><span class="s1">, newline=</span><span class="s2">''</span><span class="s1">) </span><span class="s0">as </span><span class="s1">csvfile: 
+        spamwriter = csv.writer(csvfile, delimiter=</span><span class="s2">','</span><span class="s1">) 
+ 
+        </span><span class="s3"># Write Field Names to CSV</span><span class="s1"> 
+        spamwriter.writerow(VideoInfo._fields) 
+ 
+        </span><span class="s3"># Write YouTube Info to CSV</span><span class="s1"> 
+        </span><span class="s0">for </span><span class="s1">vid </span><span class="s0">in </span><span class="s1">video_list: 
+            spamwriter.writerow([vid.idx, 
+                                 vid.href, 
+                                 channel, 
+                                 vid.title, 
+                                 vid.aria_label 
+                                 ]) 
+ 
+ 
+</span><span class="s0">if </span><span class="s1">__name__ == </span><span class="s2">'__main__'</span><span class="s1">: 
+    main() 
+</span></pre>
+</body>
+</html>
